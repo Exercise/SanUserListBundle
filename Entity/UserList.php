@@ -1,11 +1,11 @@
 <?php
 
-namespace San\UserBundle\Model;
+namespace San\UserBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use San\UserBundle\Model\UserInterface;
+use San\UserBundle\Model\UserList as BaseList;
 
-class UserList
+class UserList extends BaseList
 {
     /**
      * @var integer

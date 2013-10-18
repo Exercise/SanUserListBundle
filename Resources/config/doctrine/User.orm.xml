@@ -4,12 +4,15 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <mapped-superclass name="San\UserBundle\Entity\User">
+    <entity name="San\UserBundle\Entity\User" table="san_user">
         <id name="id" type="integer">
             <generator strategy="AUTO" />
         </id>
         <field name="cell" type="bigint" nullable="true" />
-        <many-to-many field="lists" target-entity="San\UserBundle\Entity\List" inversed-by="users" />
-    </mapped-superclass>
+        <field name="firstName" type="string" nullable="true" />
+        <field name="lastName" type="string" nullable="true" />
+        <field name="registered" type="datetime" />
+        <many-to-many field="lists" target-entity="San\UserBundle\Entity\UserList" mapped-by="users" />
+    </entity>
 
 </doctrine-mapping>
