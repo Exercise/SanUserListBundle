@@ -1,9 +1,9 @@
 {
-    "name": "exercise/ep-user-bundle",
+    "name": "san/user-bundle",
     "type": "symfony-bundle",
     "description": "Exercise platform user bundle",
     "keywords": ["exercise", "platform", "user", "bundle"],
-    "homepage": "https://github.com/Exercise/EPUserBundle.git",
+    "homepage": "https://github.com/Exercise/SanUserBundle.git",
     "license": "MIT",
     "authors": [
         { "name": "Alex Kovalevych", "email": "alexkovalevych@gmail.com" }
@@ -15,9 +15,9 @@
         "sonata-project/admin-bundle": "2.2.*@dev"
     },
     "autoload": {
-        "psr-0": { "Exercise\\EPUserBundle": "" }
+        "psr-0": { "San\\UserBundle": "" }
     },
-    "target-dir": "Exercise/EPUserBundle",
+    "target-dir": "San/UserBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
