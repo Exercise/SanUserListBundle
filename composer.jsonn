@@ -1,0 +1,25 @@
+{
+    "name": "exercise/ep-user-bundle",
+    "type": "symfony-bundle",
+    "description": "Exercise platform user bundle",
+    "keywords": ["exercise", "platform", "user", "bundle"],
+    "homepage": "https://github.com/Exercise/EPUserBundle.git",
+    "license": "MIT",
+    "authors": [
+        { "name": "Alex Kovalevych", "email": "alexkovalevych@gmail.com" }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "~2.3",
+        "friendsofsymfony/user-bundle": "1.3.*@dev"
+    },
+    "autoload": {
+        "psr-0": { "Exercise\\EPUserBundle": "" }
+    },
+    "target-dir": "Exercise/EPUserBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
