@@ -2,9 +2,9 @@
 
 namespace San\UserBundle\Model;
 
-use FOS\UserBundle\Model\UserInterface;
+use FOS\UserBundle\Model\UserInterface as BaseUserInterface;
 
-interface UserInterface extends UserInterface
+interface UserInterface extends BaseUserInterface
 {
     public function getId();
 

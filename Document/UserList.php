@@ -1,6 +1,6 @@
 <?php
 
-namespace San\UserBundle\Entity;
+namespace San\UserBundle\Document;
 
 use San\UserBundle\Model\UserList as BaseList;
 

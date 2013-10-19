@@ -3,13 +3,13 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <service id="san.admin.user" class="San\UserBundle\Admin\UserAdmin">
-          <tag name="sonata.admin" manager_type="orm" group="User" label="User"/>
-          <argument />
-          <argument>San\UserBundle\Entity\User</argument>
-          <argument />
-          <call method="setTranslationDomain">
-              <argument>SanUserBundle</argument>
-          </call>
+            <tag name="sonata.admin" manager_type="doctrine_mongodb" group="User" label="User"/>
+            <argument />
+            <argument>San\UserBundle\Document\User</argument>
+            <argument />
+            <call method="setTranslationDomain">
+                <argument>SanUserBundle</argument>
+            </call>
         </service>
     </services>
 </container>
