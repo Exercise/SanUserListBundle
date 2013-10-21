@@ -23,7 +23,7 @@ class UserAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('lastLogin')
+            ->add('lastLogin', 'san_orm_date')
         ;
     }
 
