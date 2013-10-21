@@ -9,6 +9,19 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class UserAdmin extends Admin
 {
+    /**
+     * @var string
+     */
+    protected $manager;
+
+    /**
+     * @param string $manager
+     */
+    public function setManager($manager)
+    {
+        $this->manager = $manager;
+    }
+
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
@@ -22,8 +35,14 @@ class UserAdmin extends Admin
     // Fields to be shown on filter forms
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
+        $dateType = 'san_orm_date';
+        if ($this->manager != 'orm') {
+            $dateType = 'san_mongodb_date';
+        }
+
         $datagridMapper
-            ->add('lastLogin', 'san_orm_date')
+            ->add('lastLogin', $dateType)
+            ->add('registered', $dateType)
         ;
     }
 

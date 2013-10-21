@@ -10,8 +10,12 @@
             <tag name="form.type" alias="san_type_filter_date" />
         </service>
 
-        <service id="san.admin.orm.filter.type.date" class="San\UserBundle\Filter\DateFilter">
+        <service id="san.admin.orm.filter.type.date" class="San\UserBundle\Filter\ORM\DateFilter">
             <tag name="sonata.admin.filter.type" alias="san_orm_date" />
+        </service>
+
+        <service id="san.admin.mongodb.filter.type.date" class="San\UserBundle\Filter\MongoDB\DateFilter">
+            <tag name="sonata.admin.filter.type" alias="san_mongodb_date" />
         </service>
     </services>
 

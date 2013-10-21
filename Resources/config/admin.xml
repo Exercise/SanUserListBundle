@@ -10,6 +10,9 @@
             <call method="setTranslationDomain">
                 <argument>SanUserBundle</argument>
             </call>
+            <call method="setManager">
+                <argument>%san_user.manager%</argument>
+            </call>
         </service>
     </services>
 </container>

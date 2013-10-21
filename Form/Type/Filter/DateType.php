@@ -23,7 +23,7 @@ class DateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('type', 'hidden', array('required' => false))
+            ->add('type', 'hidden')
             ->add('value', 'date', array_merge(array(
                 'required' => false,
                 'widget' => 'single_text'
