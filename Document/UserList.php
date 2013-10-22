@@ -2,6 +2,6 @@
 
 namespace San\UserBundle\Document;
 
-use San\UserBundle\Model\UserList as BaseList;
+use San\UserBundle\Model\UserList as BaseUserList;
 
-class UserList extends BaseList {}
+class UserList extends BaseUserList {}

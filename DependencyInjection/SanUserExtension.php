@@ -5,6 +5,7 @@ namespace San\UserBundle\DependencyInjection;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class SanUserExtension extends Extension
@@ -21,16 +22,28 @@ class SanUserExtension extends Extension
         $loader->load('form.xml');
         $loader->load('admin.xml');
 
-        // Set manager
-        $userAdmin = $container->getDefinition('san.admin.user');
-        $userAdminTag = $userAdmin->getTag('sonata.admin');
-        $userAdminTag[0]['manager_type'] = $config['manager'];
-        $userAdmin->setTags(array('sonata.admin' => $userAdminTag));
+        $manager = $container->getParameter('san_user.manager');
+        $taggedServices = $container->findTaggedServiceIds('san.admin');
 
-        // Set model
-        if ($config['manager'] == 'orm') {
-            $model = $userAdmin->getArgument(1);
-            $userAdmin->replaceArgument(1, str_replace('Document', 'Entity', $model));
+        foreach ($taggedServices as $id => $attributes) {
+            // Set manager
+            $adminClass = $container->getDefinition($id);
+            $adminClassTag = $adminClass->getTag('sonata.admin');
+            $adminClassTag[0]['manager_type'] = $manager;
+            $adminClass->setTags(array('sonata.admin' => $adminClassTag));
+
+            // Set model
+            if ($manager != 'orm') {
+                $model = $adminClass->getArgument(1);
+                $adminClass->replaceArgument(1, str_replace('Entity', 'Document', $model));
+            }
+
+            $adminClass->addMethodCall('setManager', array($manager));
+        }
+
+        if ($manager != 'orm') {
+            $userEntityType = $container->getDefinition('san.admin.orm.type.user_entity');
+            $userEntityType->replaceArgument(0, new Reference());
         }
     }
 

@@ -2,17 +2,28 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
+
         <service id="san.admin.user" class="San\UserBundle\Admin\UserAdmin">
             <tag name="sonata.admin" manager_type="" group="User" label="User"/>
+            <tag name="san.admin" />
             <argument />
-            <argument>San\UserBundle\Document\User</argument>
-            <argument />
+            <argument>San\UserBundle\Entity\User</argument>
+            <argument></argument>
             <call method="setTranslationDomain">
                 <argument>SanUserBundle</argument>
             </call>
-            <call method="setManager">
-                <argument>%san_user.manager%</argument>
+        </service>
+
+        <service id="san.admin.user_list" class="San\UserBundle\Admin\UserListAdmin">
+            <tag name="sonata.admin" manager_type="" group="User" label="User List"/>
+            <tag name="san.admin" />
+            <argument />
+            <argument>San\UserBundle\Entity\UserList</argument>
+            <argument>SanUserBundle:Admin/UserListCRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>SanUserBundle</argument>
             </call>
         </service>
+
     </services>
 </container>

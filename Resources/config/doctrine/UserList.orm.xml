@@ -4,12 +4,19 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="San\UserBundle\Entity\UserList" table="san_user_list">
+    <entity name="San\UserBundle\Entity\UserList" inheritance-type="SINGLE_TABLE" table="san_user_list">
+        <discriminator-column name="type" type="string" />
+        <discriminator-map>
+            <discriminator-mapping value="static" class="San\UserBundle\Entity\UserStaticList" />
+            <discriminator-mapping value="dynamic" class="San\UserBundle\Entity\UserDynamicList" />
+        </discriminator-map>
         <id name="id" type="integer">
             <generator strategy="AUTO" />
         </id>
+        <field name="name" type="string" />
+        <field name="description" type="string" />
         <field name="created" type="datetime" />
-        <many-to-many field="users" target-entity="San\UserBundle\Entity\User" inversed-by="lists">
+        <many-to-many field="users" target-entity="San\UserBundle\Entity\User" inversed-by="lists" fetch="EXTRA_LAZY">
             <join-table name="user_userlist">
                 <join-columns>
                     <join-column name="user_list_id" referenced-column-name="id" />

@@ -5,6 +5,11 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+        <service id="san.admin.orm.type.user_list" class="San\UserBundle\Form\Type\UserListType">
+            <tag name="form.type" alias="san_user_list" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+
         <!-- Form Filter Type -->
         <service id="san.admin.form.filter.type.date" class="San\UserBundle\Form\Type\Filter\DateType">
             <tag name="form.type" alias="san_type_filter_date" />

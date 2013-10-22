@@ -26,9 +26,7 @@ class UserAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            // ->add('title', 'text', array('label' => 'Post Title'))
-            // ->add('author', 'entity', array('class' => 'Acme\DemoBundle\Entity\User'))
-            // ->add('body') //if no type is specified, SonataAdminBundle tries to guess it
+            ->add('username')
         ;
     }
 
