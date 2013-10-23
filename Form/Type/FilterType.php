@@ -2,29 +2,37 @@
 
 namespace San\UserBundle\Form\Type;
 
+use San\UserBundle\Form\Type\FilterValueType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class UserStaticListType extends AbstractType
+class FilterType extends AbstractType
 {
+    /**
+     * {@inheritDoc}
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name')
-            ->add('description', 'textarea')
-            ->add('users', 'san_user_list')
+            ->add('value', new FilterValueType())
         ;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'csrf_protection' => true,
-            'csrf_field_name' => '_token',
+            'data_class' => 'Sonata\AdminBundle\Filter\Filter'
         ));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function getName()
     {
         return 'UserStaticList';

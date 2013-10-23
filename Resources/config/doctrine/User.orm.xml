@@ -12,7 +12,6 @@
         <field name="firstName" type="string" nullable="true" />
         <field name="lastName" type="string" nullable="true" />
         <field name="registered" type="datetime" />
-        <many-to-many field="lists" target-entity="San\UserBundle\Entity\UserList" mapped-by="users" />
     </entity>
 
 </doctrine-mapping>

@@ -2,7 +2,6 @@
 
 namespace San\UserBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Entity\User as BaseUser;
 use San\UserBundle\Model\UserInterface;
 
@@ -19,11 +18,6 @@ class User extends BaseUser implements UserInterface
      * @var integer
      */
     protected $cell;
-
-    /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
-     */
-    protected $lists;
 
     /**
      * @var string
@@ -43,7 +37,6 @@ class User extends BaseUser implements UserInterface
     public function __construct()
     {
         parent::__construct();
-        $this->lists = new ArrayCollection();
         $this->registered = new \DateTime();
     }
 
@@ -69,39 +62,6 @@ class User extends BaseUser implements UserInterface
     public function setCell($cell)
     {
         $this->cell = $cell;
-    }
-
-    /**
-     * Add list
-     *
-     * @param \San\UserBundle\Entity\UserList $list
-     * @return User
-     */
-    public function addList(\San\UserBundle\Entity\UserList $list)
-    {
-        $this->lists[] = $list;
-
-        return $this;
-    }
-
-    /**
-     * Remove list
-     *
-     * @param \San\UserBundle\Entity\UserList $list
-     */
-    public function removeList(\San\UserBundle\Entity\UserList $list)
-    {
-        $this->lists->removeElement($list);
-    }
-
-    /**
-     * Get lists
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getLists()
-    {
-        return $this->lists;
     }
 
     /**

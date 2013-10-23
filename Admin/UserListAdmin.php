@@ -30,11 +30,14 @@ class UserListAdmin extends Admin
      */
     public function generateObjectUrl($name, $object, array $parameters = array(), $absolute = false)
     {
-        if ($name == 'edit') {
-            return $this->generateObjectUrl('userListEdit', $object, $parameters, $absolute);
+        switch ($name) {
+            case 'edit':
+                return $this->generateObjectUrl('userListEdit', $object, $parameters, $absolute);
+            case 'createDynamicList':
+                return $this->generateObjectUrl('createDynamicList', $object, $parameters, $absolute);
+            default:
+                return parent::generateObjectUrl($name, $object, $parameters, $absolute);
         }
-
-        return parent::generateObjectUrl($name, $object, $parameters, $absolute);
     }
 
     // Fields to be shown on filter forms
@@ -45,6 +48,7 @@ class UserListAdmin extends Admin
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->add('userListEdit');
+        $collection->add('createDynamicList');
     }
 
     // Fields to be shown on lists

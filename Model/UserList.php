@@ -2,9 +2,7 @@
 
 namespace San\UserBundle\Model;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use San\UserBundle\Model\UserInterface;
 
 class UserList
 {
@@ -32,11 +30,6 @@ class UserList
     protected $description;
 
     /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
-     */
-    protected $users;
-
-    /**
      * @var \DateTime
      */
     protected $created;
@@ -47,7 +40,6 @@ class UserList
     public function __construct()
     {
         $this->created = new \DateTime();
-        $this->users = new ArrayCollection();
     }
 
     /**
@@ -122,57 +114,5 @@ class UserList
     public function getCreated()
     {
         return $this->created;
-    }
-
-    /**
-     * Add user
-     *
-     * @param \San\UserBundle\Model\UserInterface $user
-     * @return UserList
-     */
-    public function addUser(UserInterface $user)
-    {
-        $this->users[] = $user;
-
-        return $this;
-    }
-
-    /**
-     * Remove user
-     *
-     * @param \San\UserBundle\Model\UserInterface $user
-     */
-    public function removeUser(UserInterface $user)
-    {
-        $this->users->removeElement($user);
-    }
-
-    /**
-     * Get users
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUsers()
-    {
-        return $this->users;
-    }
-
-    /**
-     * @param ArrayCollection $users
-     * @return self
-     */
-    public function setUsers(ArrayCollection $users)
-    {
-        $this->users = $users;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getUsersNumber()
-    {
-        return $this->users->count();
     }
 }

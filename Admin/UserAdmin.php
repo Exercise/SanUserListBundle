@@ -30,6 +30,18 @@ class UserAdmin extends Admin
         ;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function getTemplate($name)
+    {
+        if ($name == 'list') {
+            return 'SanUserBundle:Admin/CRUD:user_list.html.twig';
+        }
+
+        return parent::getTemplate($name);
+    }
+
     // Fields to be shown on filter forms
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
@@ -41,6 +53,8 @@ class UserAdmin extends Admin
         $datagridMapper
             ->add('lastLogin', $dateType)
             ->add('registered', $dateType)
+            ->add('username')
+            ->add('enabled')
         ;
     }
 
