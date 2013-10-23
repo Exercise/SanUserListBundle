@@ -8,18 +8,29 @@
             <tag name="san.admin" />
             <argument />
             <argument>San\UserBundle\Entity\User</argument>
-            <argument>SanUserBundle:Admin/UserCRUD</argument>
+            <argument></argument>
             <call method="setTranslationDomain">
                 <argument>SanUserBundle</argument>
             </call>
         </service>
 
-        <service id="san.admin.user_list" class="San\UserBundle\Admin\UserListAdmin">
-            <tag name="sonata.admin" manager_type="" group="User" label="User List"/>
+        <service id="san.admin.user_static_list" class="San\UserBundle\Admin\UserStaticListAdmin">
+            <tag name="sonata.admin" manager_type="" group="User" label="User Static List"/>
             <tag name="san.admin" />
             <argument />
-            <argument>San\UserBundle\Entity\UserList</argument>
-            <argument>SanUserBundle:Admin/UserListCRUD</argument>
+            <argument>San\UserBundle\Entity\UserStaticList</argument>
+            <argument></argument>
+            <call method="setTranslationDomain">
+                <argument>SanUserBundle</argument>
+            </call>
+        </service>
+
+        <service id="san.admin.user_dynamic_list" class="San\UserBundle\Admin\UserDynamicListAdmin">
+            <tag name="sonata.admin" manager_type="" group="User" label="User Dynamic List"/>
+            <tag name="san.admin" />
+            <argument />
+            <argument>San\UserBundle\Entity\UserDynamicList</argument>
+            <argument></argument>
             <call method="setTranslationDomain">
                 <argument>SanUserBundle</argument>
             </call>
