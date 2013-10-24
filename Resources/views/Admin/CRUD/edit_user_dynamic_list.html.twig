@@ -1,0 +1,10 @@
+{% extends 'SonataAdminBundle:CRUD:edit.html.twig' %}
+
+{% block form %}
+    <style type="text/css">
+        a.btn.sonata-collection-add {
+            display: none;
+        }
+    </style>
+    {{ parent() }}
+{% endblock %}

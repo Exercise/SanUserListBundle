@@ -15,19 +15,9 @@ class FilterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('value', new FilterValueType())
+            ->add('type')
+            ->add('value')
         ;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'Sonata\AdminBundle\Filter\Filter'
-        ));
     }
 
     /**
@@ -35,6 +25,6 @@ class FilterType extends AbstractType
      */
     public function getName()
     {
-        return 'UserStaticList';
+        return 'san_list_filter';
     }
 }

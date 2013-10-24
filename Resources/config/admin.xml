@@ -30,7 +30,7 @@
             <tag name="san.admin" />
             <argument />
             <argument>San\UserBundle\Entity\UserDynamicList</argument>
-            <argument></argument>
+            <argument>SanUserBundle:Admin/UserDynamicListCRUD</argument>
             <call method="setTranslationDomain">
                 <argument>SanUserBundle</argument>
             </call>

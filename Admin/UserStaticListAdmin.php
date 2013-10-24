@@ -30,7 +30,7 @@ class UserStaticListAdmin extends Admin
     {
         $formMapper
             ->add('name')
-            ->add('description')
+            ->add('description', 'textarea')
             ->add('users', 'san_user_list')
         ;
     }

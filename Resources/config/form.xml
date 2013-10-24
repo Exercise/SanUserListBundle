@@ -10,6 +10,10 @@
             <argument type="service" id="doctrine.orm.entity_manager" />
         </service>
 
+        <service id="san.admin.orm.type.list_filter" class="San\UserBundle\Form\Type\FilterType">
+            <tag name="form.type" alias="san_list_filter" />
+        </service>
+
         <!-- Form Filter Type -->
         <service id="san.admin.form.filter.type.date" class="San\UserBundle\Form\Type\Filter\DateType">
             <tag name="form.type" alias="san_type_filter_date" />

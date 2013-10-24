@@ -2,36 +2,10 @@
 
 namespace San\UserBundle\Entity;
 
-use San\UserBundle\Entity\UserList;
+use San\UserBundle\Model\UserDynamicListTrait;
+use San\UserBundle\Entity\UserList as BaseUserList;
 
-class UserDynamicList extends UserList
+class UserDynamicList extends BaseUserList
 {
-    /**
-     * @var string
-     */
-    protected $type = self::TYPE_DYNAMIC;
-
-    /**
-     * @var array
-     */
-    protected $filters;
-
-    /**
-     * @return array
-     */
-    public function getFilters()
-    {
-        return $this->filters;
-    }
-
-    /**
-     * @param array $filters
-     * @return self
-     */
-    public function setFilters(array $filters)
-    {
-        $this->filters = $filters;
-
-        return $this;
-    }
+    use UserDynamicListTrait;
 }

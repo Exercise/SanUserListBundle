@@ -30,9 +30,26 @@ class UserDynamicListAdmin extends Admin
     {
         $formMapper
             ->add('name')
-            ->add('description')
-            ->add('filters')
+            ->add('description', 'textarea')
+            ->add('rawFilters', 'hidden')
+            ->add('filters', 'collection', array(
+                'type'      => 'san_list_filter',
+                'read_only' => true,
+                'allow_add' => true
+            ))
         ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getTemplate($name)
+    {
+        if ($name == 'edit') {
+            return 'SanUserBundle:Admin/CRUD:edit_user_dynamic_list.html.twig';
+        }
+
+        return parent::getTemplate($name);
     }
 
     // Fields to be shown on filter forms
