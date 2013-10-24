@@ -1,13 +1,11 @@
 <?php
 
-namespace San\UserBundle\Document;
+namespace San\UserListBundle\Document;
 
-use San\UserBundle\Document\UserList;
+use San\UserListBundle\Document\UserList;
+use San\UserListBundle\Model\UserDynamicListTrait;
 
 class UserDynamicList extends UserList
 {
-    /**
-     * @var string
-     */
-    protected $type = self::TYPE_DYNAMIC;
+    use UserDynamicListTrait;
 }

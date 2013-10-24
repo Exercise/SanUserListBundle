@@ -5,25 +5,30 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="san.admin.orm.type.user_list" class="San\UserBundle\Form\Type\UserListType">
-            <tag name="form.type" alias="san_user_list" />
+        <service id="san.admin.orm.type.user_list" class="San\UserListBundle\Form\Type\ORM\UserListType">
+            <tag name="form.type" alias="san_user_list_orm" />
             <argument type="service" id="doctrine.orm.entity_manager" />
         </service>
 
-        <service id="san.admin.orm.type.list_filter" class="San\UserBundle\Form\Type\FilterType">
+        <service id="san.admin.odm.type.user_list" class="San\UserListBundle\Form\Type\ODM\UserListType">
+            <tag name="form.type" alias="san_user_list_odm" />
+            <argument type="service" id="doctrine_mongodb.odm.document_manager" />
+        </service>
+
+        <service id="san.admin.orm.type.list_filter" class="San\UserListBundle\Form\Type\FilterType">
             <tag name="form.type" alias="san_list_filter" />
         </service>
 
         <!-- Form Filter Type -->
-        <service id="san.admin.form.filter.type.date" class="San\UserBundle\Form\Type\Filter\DateType">
+        <service id="san.admin.form.filter.type.date" class="San\UserListBundle\Form\Type\Filter\DateType">
             <tag name="form.type" alias="san_type_filter_date" />
         </service>
 
-        <service id="san.admin.orm.filter.type.date" class="San\UserBundle\Filter\ORM\DateFilter">
+        <service id="san.admin.orm.filter.type.date" class="San\UserListBundle\Filter\ORM\DateFilter">
             <tag name="sonata.admin.filter.type" alias="san_orm_date" />
         </service>
 
-        <service id="san.admin.mongodb.filter.type.date" class="San\UserBundle\Filter\MongoDB\DateFilter">
+        <service id="san.admin.mongodb.filter.type.date" class="San\UserListBundle\Filter\MongoDB\DateFilter">
             <tag name="sonata.admin.filter.type" alias="san_mongodb_date" />
         </service>
     </services>

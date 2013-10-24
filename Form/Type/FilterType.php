@@ -1,8 +1,8 @@
 <?php
 
-namespace San\UserBundle\Form\Type;
+namespace San\UserListBundle\Form\Type;
 
-use San\UserBundle\Form\Type\FilterValueType;
+use San\UserListBundle\Form\Type\FilterValueType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;

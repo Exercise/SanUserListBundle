@@ -1,6 +1,6 @@
 <?php
 
-namespace San\UserBundle\DependencyInjection;
+namespace San\UserListBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class SanUserExtension extends Extension
+class SanUserListExtension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -22,7 +22,7 @@ class SanUserExtension extends Extension
         $loader->load('form.xml');
         $loader->load('admin.xml');
 
-        $manager = $container->getParameter('san_user.manager');
+        $manager = $container->getParameter('san_user_list.manager');
         $taggedServices = $container->findTaggedServiceIds('san.admin');
 
         foreach ($taggedServices as $id => $attributes) {
@@ -40,11 +40,6 @@ class SanUserExtension extends Extension
 
             $adminClass->addMethodCall('setManager', array($manager));
         }
-
-        if ($manager != 'orm') {
-            $userEntityType = $container->getDefinition('san.admin.orm.type.user_entity');
-            $userEntityType->replaceArgument(0, new Reference());
-        }
     }
 
     /**
@@ -52,6 +47,6 @@ class SanUserExtension extends Extension
      */
     public function getAlias()
     {
-        return 'san_user';
+        return 'san_user_list';
     }
 }

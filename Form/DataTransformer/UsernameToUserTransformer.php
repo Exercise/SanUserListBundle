@@ -1,10 +1,9 @@
 <?php
 
-namespace San\UserBundle\Form\DataTransformer;
+namespace San\UserListBundle\Form\DataTransformer;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Persistence\ObjectManager;
-use San\UserBundle\Model\User;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
 
@@ -16,11 +15,18 @@ class UsernameToUserTransformer implements DataTransformerInterface
     private $om;
 
     /**
-     * @param ObjectManager $om
+     * @var string
      */
-    public function __construct(ObjectManager $om)
+    protected $userClass;
+
+    /**
+     * @param ObjectManager $om
+     * @param string        $userClass
+     */
+    public function __construct(ObjectManager $om, $userClass)
     {
         $this->om = $om;
+        $this->userClass = $userClass;
     }
 
     /**
@@ -63,7 +69,7 @@ class UsernameToUserTransformer implements DataTransformerInterface
         $usernames = array_map(function($username) { return trim($username); }, $usernames);
 
         foreach ($usernames as $username) {
-            $user = $this->om->getRepository('SanUserBundle:User')->findOneBy(array('username' => $username));
+            $user = $this->om->getRepository($this->userClass)->findOneBy(array('username' => $username));
             if (null === $user) {
                 throw new TransformationFailedException(sprintf('User with username "%s" does not exist!', $username));
             }

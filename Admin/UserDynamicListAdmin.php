@@ -1,9 +1,9 @@
 <?php
 
-namespace San\UserBundle\Admin;
+namespace San\UserListBundle\Admin;
 
-use San\UserBundle\Form\Type\UserEntityType;
-use San\UserBundle\Model\UserList;
+use San\UserListBundle\Form\Type\UserEntityType;
+use San\UserListBundle\Model\UserList;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -46,7 +46,7 @@ class UserDynamicListAdmin extends Admin
     public function getTemplate($name)
     {
         if ($name == 'edit') {
-            return 'SanUserBundle:Admin/CRUD:edit_user_dynamic_list.html.twig';
+            return 'SanUserListBundle:Admin/CRUD:edit_user_dynamic_list.html.twig';
         }
 
         return parent::getTemplate($name);

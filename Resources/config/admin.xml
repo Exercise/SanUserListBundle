@@ -3,33 +3,33 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
 
-        <service id="san.admin.user" class="San\UserBundle\Admin\UserAdmin">
+        <service id="san.admin.user" class="San\UserListBundle\Admin\UserAdmin">
             <tag name="sonata.admin" manager_type="" group="User" label="User"/>
             <tag name="san.admin" />
             <argument />
-            <argument>San\UserBundle\Entity\User</argument>
+            <argument>%san_user_list.user_class%</argument>
             <argument></argument>
             <call method="setTranslationDomain">
                 <argument>SanUserBundle</argument>
             </call>
         </service>
 
-        <service id="san.admin.user_static_list" class="San\UserBundle\Admin\UserStaticListAdmin">
+        <service id="san.admin.user_static_list" class="San\UserListBundle\Admin\UserStaticListAdmin">
             <tag name="sonata.admin" manager_type="" group="User" label="User Static List"/>
             <tag name="san.admin" />
             <argument />
-            <argument>San\UserBundle\Entity\UserStaticList</argument>
+            <argument>San\UserListBundle\Entity\UserStaticList</argument>
             <argument></argument>
             <call method="setTranslationDomain">
                 <argument>SanUserBundle</argument>
             </call>
         </service>
 
-        <service id="san.admin.user_dynamic_list" class="San\UserBundle\Admin\UserDynamicListAdmin">
+        <service id="san.admin.user_dynamic_list" class="San\UserListBundle\Admin\UserDynamicListAdmin">
             <tag name="sonata.admin" manager_type="" group="User" label="User Dynamic List"/>
             <tag name="san.admin" />
             <argument />
-            <argument>San\UserBundle\Entity\UserDynamicList</argument>
+            <argument>San\UserListBundle\Entity\UserDynamicList</argument>
             <argument>SanUserBundle:Admin/UserDynamicListCRUD</argument>
             <call method="setTranslationDomain">
                 <argument>SanUserBundle</argument>

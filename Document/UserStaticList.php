@@ -1,13 +1,18 @@
 <?php
 
-namespace San\UserBundle\Document;
+namespace San\UserListBundle\Document;
 
-use San\UserBundle\Document\UserList;
+use Doctrine\Common\Collections\ArrayCollection;
+use San\UserListBundle\Document\UserList;
+use San\UserListBundle\Model\UserStaticListTrait;
 
 class UserStaticList extends UserList
 {
-    /**
-     * @var string
-     */
-    protected $type = self::TYPE_STATIC;
+    use UserStaticListTrait;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->users = new ArrayCollection();
+    }
 }

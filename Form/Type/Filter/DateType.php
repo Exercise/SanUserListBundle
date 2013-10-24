@@ -1,6 +1,6 @@
 <?php
 
-namespace San\UserBundle\Form\Type\Filter;
+namespace San\UserListBundle\Form\Type\Filter;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -26,7 +26,7 @@ class DateType extends AbstractType
             ->add('type', 'hidden')
             ->add('value', 'date', array_merge(array(
                 'required' => false,
-                'widget' => 'single_text'
+                'widget'   => 'single_text'
             ), $options['field_options']))
         ;
     }

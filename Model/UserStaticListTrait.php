@@ -1,9 +1,9 @@
 <?php
 
-namespace San\UserBundle\Model;
+namespace San\UserListBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use San\UserBundle\Model\UserInterface;
+use FOS\UserBundle\Model\UserInterface;
 
 trait UserStaticListTrait
 {

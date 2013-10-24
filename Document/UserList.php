@@ -1,7 +1,7 @@
 <?php
 
-namespace San\UserBundle\Document;
+namespace San\UserListBundle\Document;
 
-use San\UserBundle\Model\UserList as BaseUserList;
+use San\UserListBundle\Model\UserList as BaseUserList;
 
 class UserList extends BaseUserList {}

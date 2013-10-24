@@ -1,9 +1,9 @@
 {
-    "name": "san/user-bundle",
+    "name": "san/user-list-bundle",
     "type": "symfony-bundle",
     "description": "Exercise platform user bundle",
     "keywords": ["exercise", "platform", "user", "bundle"],
-    "homepage": "https://github.com/Exercise/SanUserBundle.git",
+    "homepage": "https://github.com/Exercise/SanUserListBundle.git",
     "license": "MIT",
     "authors": [
         { "name": "Alex Kovalevych", "email": "alexkovalevych@gmail.com" }
@@ -17,9 +17,9 @@
         "sonata-project/doctrine-mongodb-admin-bundle": "2.2.*@dev"
     },
     "autoload": {
-        "psr-0": { "San\\UserBundle": "" }
+        "psr-0": { "San\\UserListBundle": "" }
     },
-    "target-dir": "San/UserBundle",
+    "target-dir": "San/UserListBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"

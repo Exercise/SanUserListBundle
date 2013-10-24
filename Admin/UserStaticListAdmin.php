@@ -1,9 +1,9 @@
 <?php
 
-namespace San\UserBundle\Admin;
+namespace San\UserListBundle\Admin;
 
-use San\UserBundle\Form\Type\UserEntityType;
-use San\UserBundle\Model\UserList;
+use San\UserListBundle\Form\Type\UserEntityType;
+use San\UserListBundle\Model\UserList;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -31,8 +31,13 @@ class UserStaticListAdmin extends Admin
         $formMapper
             ->add('name')
             ->add('description', 'textarea')
-            ->add('users', 'san_user_list')
         ;
+
+        if ($this->manager == 'orm') {
+            $formMapper->add('users', 'san_user_list_orm');
+        } else {
+            $formMapper->add('users', 'san_user_list_odm');
+        }
     }
 
     // Fields to be shown on filter forms

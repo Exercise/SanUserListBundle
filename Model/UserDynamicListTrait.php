@@ -1,6 +1,6 @@
 <?php
 
-namespace San\UserBundle\Model;
+namespace San\UserListBundle\Model;
 
 trait UserDynamicListTrait
 {

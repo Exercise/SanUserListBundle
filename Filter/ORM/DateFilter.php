@@ -1,6 +1,6 @@
 <?php
 
-namespace San\UserBundle\Filter\ORM;
+namespace San\UserListBundle\Filter\ORM;
 
 use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 use Sonata\AdminBundle\Form\Type\Filter\DateType;

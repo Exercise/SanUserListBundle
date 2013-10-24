@@ -1,10 +1,10 @@
 <?php
 
-namespace San\UserBundle\Controller\Admin;
+namespace San\UserListBundle\Controller\Admin;
 
-use San\UserBundle\Entity\UserDynamicList;
-use San\UserBundle\Form\Type\UserStaticListType;
-use San\UserBundle\Form\Type\UserDynamicListType;
+use San\UserListBundle\Entity\UserDynamicList;
+use San\UserListBundle\Form\Type\UserStaticListType;
+use San\UserListBundle\Form\Type\UserDynamicListType;
 use Sonata\AdminBundle\Controller\CRUDController;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Request;
@@ -87,7 +87,11 @@ class UserDynamicListCRUDController extends CRUDController
         ));
     }
 
-    protected function getFilters($rawFilters)
+    /**
+     * @param  array $rawFilters
+     * @return array
+     */
+    protected function getFilters(array $rawFilters)
     {
         $filters = array();
         foreach ($rawFilters as $key => $value) {

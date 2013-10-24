@@ -1,16 +1,7 @@
 <?php
 
-namespace San\UserBundle;
+namespace San\UserListBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class SanUserBundle extends Bundle
-{
-    /**
-     * {@inheritDoc}
-     */
-    public function getParent()
-    {
-        return 'FOSUserBundle';
-    }
-}
+class SanUserListBundle extends Bundle {}

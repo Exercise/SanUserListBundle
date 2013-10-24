@@ -4,8 +4,8 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="San\UserBundle\Entity\UserStaticList">
-        <many-to-many field="users" target-entity="San\UserBundle\Entity\User" fetch="EXTRA_LAZY">
+    <entity name="San\UserListBundle\Entity\UserStaticList">
+        <many-to-many field="users" target-entity="San\UserListBundle\Entity\User" fetch="EXTRA_LAZY">
             <join-table name="user_userlist">
                 <join-columns>
                     <join-column name="user_list_id" referenced-column-name="id" />

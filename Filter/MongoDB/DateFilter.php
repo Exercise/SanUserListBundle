@@ -1,6 +1,6 @@
 <?php
 
-namespace San\UserBundle\Filter\MongoDB;
+namespace San\UserListBundle\Filter\MongoDB;
 
 use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 use Sonata\AdminBundle\Form\Type\Filter\DateType;

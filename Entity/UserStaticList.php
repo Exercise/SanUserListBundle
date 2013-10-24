@@ -1,10 +1,10 @@
 <?php
 
-namespace San\UserBundle\Entity;
+namespace San\UserListBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use San\UserBundle\Entity\UserList;
-use San\UserBundle\Model\UserStaticListTrait;
+use San\UserListBundle\Entity\UserList;
+use San\UserListBundle\Model\UserStaticListTrait;
 
 class UserStaticList extends UserList
 {
