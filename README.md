@@ -1,4 +1,4 @@
-SanUserBundle
+SanUserListBundle
 ============
 
-Exercise Platform bundle. Keeps user related code.
+Exercise Platform bundle. Adds user lists feature.
