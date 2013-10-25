@@ -4,7 +4,7 @@
                     http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
 
     <document name="San\UserListBundle\Document\UserStaticList">
-        <reference-many field="users" target-document="San\UserListBundle\Document\User" />
+        <reference-many field="users" target-document="" />
     </document>
 
 </doctrine-mongo-mapping>

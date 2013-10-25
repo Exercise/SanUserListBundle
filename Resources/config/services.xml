@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:doctrine="http://symfony.com/schema/dic/doctrine">
+
+    <services>
+
+        <service id="san_user_list.listener.orm_user_static_list_mapper" class="San\UserListBundle\EventListener\ORM\UserStaticListMapper">
+            <tag name="doctrine.event_listener" event="loadClassMetadata" />
+            <argument>%san_user_list.user_class%</argument>
+        </service>
+
+        <service id="san_user_list.listener.odm_user_static_list_mapper" class="San\UserListBundle\EventListener\ODM\UserStaticListMapper">
+            <argument>%san_user_list.user_class%</argument>
+            <tag name="doctrine_mongodb.odm.event_listener" event="loadClassMetadata" />
+        </service>
+
+    </services>
+</container>

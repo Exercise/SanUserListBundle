@@ -8,11 +8,13 @@
         <service id="san.admin.orm.type.user_list" class="San\UserListBundle\Form\Type\ORM\UserListType">
             <tag name="form.type" alias="san_user_list_orm" />
             <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%san_user_list.user_class%</argument>
         </service>
 
         <service id="san.admin.odm.type.user_list" class="San\UserListBundle\Form\Type\ODM\UserListType">
             <tag name="form.type" alias="san_user_list_odm" />
             <argument type="service" id="doctrine_mongodb.odm.document_manager" />
+            <argument>%san_user_list.user_class%</argument>
         </service>
 
         <service id="san.admin.orm.type.list_filter" class="San\UserListBundle\Form\Type\FilterType">

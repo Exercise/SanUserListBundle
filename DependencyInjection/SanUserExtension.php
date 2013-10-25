@@ -17,10 +17,12 @@ class SanUserListExtension extends Extension
     {
         $config = $this->processConfiguration(new Configuration(), $configs);
         $container->setParameter(sprintf("%s.manager", $this->getAlias()), $config['manager']);
+        $container->setParameter(sprintf("%s.user_class", $this->getAlias()), $config['user_class']);
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('form.xml');
         $loader->load('admin.xml');
+        $loader->load('services.xml');
 
         $manager = $container->getParameter('san_user_list.manager');
         $taggedServices = $container->findTaggedServiceIds('san.admin');

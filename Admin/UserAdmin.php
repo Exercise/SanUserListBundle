@@ -36,7 +36,7 @@ class UserAdmin extends Admin
     public function getTemplate($name)
     {
         if ($name == 'list') {
-            return 'SanUserBundle:Admin/CRUD:user_list.html.twig';
+            return 'SanUserListBundle:Admin/CRUD:user_list.html.twig';
         }
 
         return parent::getTemplate($name);
