@@ -1,15 +1,15 @@
 {
     "name": "san/user-list-bundle",
     "type": "symfony-bundle",
-    "description": "Exercise platform user bundle",
-    "keywords": ["exercise", "platform", "user", "bundle"],
+    "description": "Exercise platform user list  bundle",
+    "keywords": ["exercise", "platform", "user", "list", "bundle"],
     "homepage": "https://github.com/Exercise/SanUserListBundle.git",
     "license": "MIT",
     "authors": [
         { "name": "Alex Kovalevych", "email": "alexkovalevych@gmail.com" }
     ],
     "require": {
-        "php": ">=5.3.2",
+        "php": ">=5.4",
         "symfony/framework-bundle": "~2.3",
         "friendsofsymfony/user-bundle": "1.3.*@dev",
         "sonata-project/admin-bundle": "2.2.*@dev",
