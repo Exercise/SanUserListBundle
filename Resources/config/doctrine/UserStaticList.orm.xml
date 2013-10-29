@@ -4,7 +4,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="San\UserListBundle\Entity\UserStaticList">
+    <entity name="San\UserListBundle\Entity\UserStaticList" repository-class="San\UserListBundle\Entity\UserStaticListRepository">
         <many-to-many field="users" target-entity="" fetch="EXTRA_LAZY">
             <join-table name="user_userlist">
                 <join-columns>
