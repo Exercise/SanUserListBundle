@@ -2,7 +2,9 @@
 
 namespace San\UserListBundle\Admin;
 
+use San\UserListBundle\Admin\UserAdmin;
 use San\UserListBundle\Form\Type\UserEntityType;
+use San\UserListBundle\Model\UserDynamicListInterface;
 use San\UserListBundle\Model\UserList;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -18,11 +20,24 @@ class UserDynamicListAdmin extends Admin
     protected $manager;
 
     /**
+     * @var \San\UserListBundle\Admin\UserAdmin
+     */
+    protected $userAdmin;
+
+    /**
      * @param string $manager
      */
     public function setManager($manager)
     {
         $this->manager = $manager;
+    }
+
+    /**
+     * @param UserAdmin $userAdmin
+     */
+    public function setUserAdmin(UserAdmin $userAdmin)
+    {
+        $this->userAdmin = $userAdmin;
     }
 
     // Fields to be shown on create/edit forms
@@ -70,5 +85,20 @@ class UserDynamicListAdmin extends Admin
                 )
             ))
         ;
+    }
+
+    /**
+     * @param  UserDynamicListInterface $dynamicList
+     * @return array
+     */
+    public function getUsers(UserDynamicListInterface $dynamicList)
+    {
+        $filters = $dynamicList->getFilters();
+        $datagrid = $this->userAdmin->getDatagrid();
+        foreach ($filters as $key => $value) {
+            $datagrid->setValue($key, $value['type'], $value['value']);
+        }
+
+        return $datagrid->getResults();
     }
 }

@@ -34,6 +34,9 @@
             <call method="setTranslationDomain">
                 <argument>SanUserBundle</argument>
             </call>
+            <call method="setUserAdmin">
+                <argument type="service" id="san.admin.user" />
+            </call>
         </service>
 
     </services>
