@@ -3,7 +3,7 @@
       xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
                     http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
 
-    <document name="San\UserListBundle\Document\UserStaticList">
+    <document name="San\UserListBundle\Document\UserStaticList" repository-class="San\UserListBundle\Document\UserStaticListRepository">
         <reference-many field="users" target-document="" />
     </document>
 
