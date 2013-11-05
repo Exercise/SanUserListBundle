@@ -42,6 +42,12 @@ class SanUserListExtension extends Extension
 
             $adminClass->addMethodCall('setManager', array($manager));
         }
+
+        if ($manager == 'orm') {
+            $container->removeDefinition('san.admin.odm.type.user_list');
+        } else {
+            $container->removeDefinition('san.admin.orm.type.user_list');
+        }
     }
 
     /**
