@@ -10,11 +10,12 @@
     ],
     "require": {
         "php": ">=5.4",
-        "symfony/framework-bundle": "~2.3",
-        "friendsofsymfony/user-bundle": "1.3.*@dev",
-        "sonata-project/admin-bundle": "2.2.*@dev",
-        "sonata-project/doctrine-orm-admin-bundle": "2.2.*@dev",
-        "sonata-project/doctrine-mongodb-admin-bundle": "2.2.*@dev"
+        "symfony/framework-bundle": "~2.2",
+        "friendsofsymfony/user-bundle": ">=1.3"
+    },
+    "suggest": {
+        "sonata-project/doctrine-orm-admin-bundle": "If you're using ORM",
+        "sonata-project/doctrine-mongodb-admin-bundle": "If you're using ODM"
     },
     "autoload": {
         "psr-0": { "San\\UserListBundle": "" }
