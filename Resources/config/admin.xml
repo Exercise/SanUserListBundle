@@ -1,9 +1,15 @@
 <container xmlns="http://symfony.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
-    <services>
 
-        <service id="san.admin.user" class="San\UserListBundle\Admin\UserAdmin">
+    <parameters>
+        <parameter key="san.admin.user.class">San\UserListBundle\Admin\UserAdmin</parameter>
+        <parameter key="san.admin.user_static_list.class">San\UserListBundle\Admin\UserStaticListAdmin</parameter>
+        <parameter key="san.admin.user_dynamic_list.class">San\UserListBundle\Admin\UserDynamicListAdmin</parameter>
+    </parameters>
+
+    <services>
+        <service id="san.admin.user" class="%san.admin.user.class%">
             <tag name="sonata.admin" manager_type="" group="User" label="User"/>
             <tag name="san.admin" />
             <argument />
@@ -14,7 +20,7 @@
             </call>
         </service>
 
-        <service id="san.admin.user_static_list" class="San\UserListBundle\Admin\UserStaticListAdmin">
+        <service id="san.admin.user_static_list" class="%san.admin.user_static_list.class%">
             <tag name="sonata.admin" manager_type="" group="User" label="User Static List"/>
             <tag name="san.admin" />
             <argument />
@@ -25,7 +31,7 @@
             </call>
         </service>
 
-        <service id="san.admin.user_dynamic_list" class="San\UserListBundle\Admin\UserDynamicListAdmin">
+        <service id="san.admin.user_dynamic_list" class="%san.admin.user_dynamic_list.class%">
             <tag name="sonata.admin" manager_type="" group="User" label="User Dynamic List"/>
             <tag name="san.admin" />
             <argument />
@@ -38,6 +44,5 @@
                 <argument type="service" id="san.admin.user" />
             </call>
         </service>
-
     </services>
 </container>
