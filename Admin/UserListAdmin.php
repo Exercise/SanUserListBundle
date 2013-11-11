@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
+use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
 class UserListAdmin extends Admin
@@ -39,6 +40,15 @@ class UserListAdmin extends Admin
         $this->userAdmin = $userAdmin;
     }
 
+    protected function configureFormFields(FormMapper $formMapper)
+    {
+        $formMapper
+            ->add('name')
+            ->add('description', 'textarea')
+            ->add('rawFilters', 'hidden')
+        ;
+    }
+
     // Fields to be shown on create/edit forms
     protected function configureShowFields(ShowMapper $showMapper)
     {
@@ -54,7 +64,6 @@ class UserListAdmin extends Admin
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection
-            ->remove('create')
             ->remove('delete')
             ->remove('edit')
         ;
