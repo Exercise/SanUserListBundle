@@ -6,14 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 class UserList
 {
-    const TYPE_STATIC = 'static';
-    const TYPE_DYNAMIC = 'dynamic';
-
-    public static $types = array(
-        self::TYPE_STATIC,
-        self::TYPE_DYNAMIC
-    );
-
     /**
      * @var integer
      */
@@ -35,19 +27,21 @@ class UserList
     protected $created;
 
     /**
+     * @var array
+     */
+    protected $filters;
+
+    /**
+     * @var string
+     */
+    protected $rawFilters;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->created = new \DateTime();
-    }
-
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -114,6 +108,44 @@ class UserList
     public function getCreated()
     {
         return $this->created;
+    }
+
+    /**
+     * @return array
+     */
+    public function getFilters()
+    {
+        return $this->filters;
+    }
+
+    /**
+     * @param array $filters
+     * @return self
+     */
+    public function setFilters(array $filters)
+    {
+        $this->filters = $filters;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRawFilters()
+    {
+        return $this->rawFilters;
+    }
+
+    /**
+     * @param string $rawFilters
+     * @return  self
+     */
+    public function setRawFilters($rawFilters)
+    {
+        $this->rawFilters = $rawFilters;
+
+        return $this;
     }
 
     /**

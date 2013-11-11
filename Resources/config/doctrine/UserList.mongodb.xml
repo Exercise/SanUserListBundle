@@ -3,16 +3,12 @@
       xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
                     http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
 
-    <document name="San\UserListBundle\Document\UserList" inheritance-type="SINGLE_COLLECTION" collection="san_user_list">
-        <discriminator-field name="type" type="string" />
-        <discriminator-map>
-            <discriminator-mapping value="static" class="San\UserListBundle\Document\UserStaticList" />
-            <discriminator-mapping value="dynamic" class="San\UserListBundle\Document\UserDynamicList" />
-        </discriminator-map>
+    <document name="San\UserListBundle\Document\UserList" collection="san_user_list">
         <field fieldName="id" id="true" />
         <field fieldName="name" type="string" />
         <field fieldName="description" type="string" />
         <field fieldName="created" type="date" />
+        <field fieldName="filters" type="hash" />
     </document>
 
 </doctrine-mongo-mapping>

@@ -4,8 +4,7 @@
 
     <parameters>
         <parameter key="san.admin.user.class">San\UserListBundle\Admin\UserAdmin</parameter>
-        <parameter key="san.admin.user_static_list.class">San\UserListBundle\Admin\UserStaticListAdmin</parameter>
-        <parameter key="san.admin.user_dynamic_list.class">San\UserListBundle\Admin\UserDynamicListAdmin</parameter>
+        <parameter key="san.admin.user_list.class">San\UserListBundle\Admin\UserListAdmin</parameter>
     </parameters>
 
     <services>
@@ -20,23 +19,12 @@
             </call>
         </service>
 
-        <service id="san.admin.user_static_list" class="%san.admin.user_static_list.class%">
-            <tag name="sonata.admin" manager_type="" group="User" label="User Static List"/>
+        <service id="san.admin.user_list" class="%san.admin.user_list.class%">
+            <tag name="sonata.admin" manager_type="" group="User" label="User List"/>
             <tag name="san.admin" />
             <argument />
-            <argument>San\UserListBundle\Entity\UserStaticList</argument>
-            <argument></argument>
-            <call method="setTranslationDomain">
-                <argument>SanUserBundle</argument>
-            </call>
-        </service>
-
-        <service id="san.admin.user_dynamic_list" class="%san.admin.user_dynamic_list.class%">
-            <tag name="sonata.admin" manager_type="" group="User" label="User Dynamic List"/>
-            <tag name="san.admin" />
-            <argument />
-            <argument>San\UserListBundle\Entity\UserDynamicList</argument>
-            <argument>SanUserListBundle:Admin/UserDynamicListCRUD</argument>
+            <argument>San\UserListBundle\Entity\UserList</argument>
+            <argument>SanUserListBundle:Admin/UserListCRUD</argument>
             <call method="setTranslationDomain">
                 <argument>SanUserBundle</argument>
             </call>

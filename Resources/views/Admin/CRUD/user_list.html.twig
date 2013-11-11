@@ -2,5 +2,5 @@
 
 {% block list_table %}
     {{ parent() }}
-    <a class="btn" href="{{ path('admin_san_userlist_userdynamiclist_create', admin.modelmanager.paginationparameters(admin.datagrid, 0)) }}">Save as dynamic list</a>
+    <a class="btn" href="{{ path('admin_san_userlist_userlist_create', admin.modelmanager.paginationparameters(admin.datagrid, 0)) }}">Save as dynamic list</a>
 {% endblock %}

@@ -4,15 +4,14 @@ namespace San\UserListBundle\Admin;
 
 use San\UserListBundle\Admin\UserAdmin;
 use San\UserListBundle\Form\Type\UserEntityType;
-use San\UserListBundle\Model\UserDynamicListInterface;
 use San\UserListBundle\Model\UserList;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
-use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
+use Sonata\AdminBundle\Show\ShowMapper;
 
-class UserDynamicListAdmin extends Admin
+class UserListAdmin extends Admin
 {
     /**
      * @var string
@@ -41,17 +40,23 @@ class UserDynamicListAdmin extends Admin
     }
 
     // Fields to be shown on create/edit forms
-    protected function configureFormFields(FormMapper $formMapper)
+    protected function configureShowFields(ShowMapper $showMapper)
     {
-        $formMapper
+        $showMapper
             ->add('name')
             ->add('description', 'textarea')
-            ->add('rawFilters', 'hidden')
-            ->add('filters', 'collection', array(
-                'type'      => 'san_list_filter',
-                'read_only' => true,
-                'allow_add' => true
-            ))
+        ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection
+            ->remove('create')
+            ->remove('delete')
+            ->remove('edit')
         ;
     }
 
@@ -61,7 +66,7 @@ class UserDynamicListAdmin extends Admin
     public function getTemplate($name)
     {
         if ($name == 'edit') {
-            return 'SanUserListBundle:Admin/CRUD:edit_user_dynamic_list.html.twig';
+            return 'SanUserListBundle:Admin/CRUD:edit_user_list.html.twig';
         }
 
         return parent::getTemplate($name);
@@ -80,20 +85,19 @@ class UserDynamicListAdmin extends Admin
             ->add('description')
             ->add('_action', 'actions', array(
                 'actions' => array(
-                    'edit'   => array(),
-                    'delete' => array(),
+                    'show'   => array(),
                 )
             ))
         ;
     }
 
     /**
-     * @param  UserDynamicListInterface $dynamicList
+     * @param  UserList $list
      * @return array
      */
-    public function getUsers(UserDynamicListInterface $dynamicList)
+    public function getUsers(UserList $list)
     {
-        $filters = $dynamicList->getFilters();
+        $filters = $list->getFilters();
         $datagrid = $this->userAdmin->getDatagrid();
         foreach ($filters as $key => $value) {
             $datagrid->setValue($key, $value['type'], $value['value']);

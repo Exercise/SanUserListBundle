@@ -2,15 +2,12 @@
 
 namespace San\UserListBundle\Controller\Admin;
 
-use San\UserListBundle\Entity\UserDynamicList;
-use San\UserListBundle\Form\Type\UserStaticListType;
-use San\UserListBundle\Form\Type\UserDynamicListType;
 use Sonata\AdminBundle\Controller\CRUDController;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
-class UserDynamicListCRUDController extends CRUDController
+class UserListCRUDController extends CRUDController
 {
     /**
      * return the Response object associated to the create action
