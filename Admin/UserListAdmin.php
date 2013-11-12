@@ -69,18 +69,6 @@ class UserListAdmin extends Admin
         ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getTemplate($name)
-    {
-        if ($name == 'edit') {
-            return 'SanUserListBundle:Admin/CRUD:edit_user_list.html.twig';
-        }
-
-        return parent::getTemplate($name);
-    }
-
     // Fields to be shown on filter forms
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {

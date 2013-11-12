@@ -29,6 +29,9 @@ class UserListCRUDController extends CRUDController
 
         if ($this->getRestMethod() == 'GET') {
             $rawFilters = $this->get('request')->query->get('filter');
+            if (!$rawFilters) {
+                return $this->redirect($this->get('san.admin.user')->generateUrl('list'));
+            }
             $filters = $this->getFilters($rawFilters);
             $object->setRawFilters(json_encode($filters));
             $object->setFilters($filters);

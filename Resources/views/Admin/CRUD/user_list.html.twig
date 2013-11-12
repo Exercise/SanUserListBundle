@@ -2,5 +2,7 @@
 
 {% block list_table %}
     {{ parent() }}
-    <a class="btn" href="{{ path('admin_san_userlist_userlist_create', admin.modelmanager.paginationparameters(admin.datagrid, 0)) }}">Save list</a>
+    {% if app.request.query.get('filter') %}
+        <a class="btn" href="{{ path('admin_san_userlist_userlist_create', admin.modelmanager.paginationparameters(admin.datagrid, 0)) }}">Save list</a>
+    {% endif %}
 {% endblock %}
