@@ -40,6 +40,14 @@ class UserListAdmin extends Admin
         $this->userAdmin = $userAdmin;
     }
 
+    /**
+     * @return \San\UserListBundle\Admin\UserAdmin
+     */
+    public function getUserAdmin()
+    {
+        return $this->userAdmin;
+    }
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -66,6 +74,7 @@ class UserListAdmin extends Admin
         $collection
             ->remove('delete')
             ->remove('edit')
+            ->remove('export')
         ;
     }
 
@@ -80,11 +89,7 @@ class UserListAdmin extends Admin
         $listMapper
             ->add('name')
             ->add('description')
-            ->add('_action', 'actions', array(
-                'actions' => array(
-                    'show'   => array(),
-                )
-            ))
+            ->add('Actions', 'string', array('template' => 'SanUserListBundle:Admin:list_actions.html.twig'))
         ;
     }
 
