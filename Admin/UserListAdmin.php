@@ -48,6 +48,22 @@ class UserListAdmin extends Admin
         return $this->userAdmin;
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function toString($object)
+    {
+        if (!is_object($object)) {
+            return '';
+        }
+
+        if (method_exists($object, '__toString') && null !== $object->__toString()) {
+            return (string) $object;
+        }
+
+        return 'Add new queue';
+    }
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
