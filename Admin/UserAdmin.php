@@ -36,6 +36,20 @@ class UserAdmin extends Admin
     }
 
     /**
+     * @return array
+     */
+    public function getExportFields()
+    {
+        return array(
+            'id',
+            'username',
+            'enabled',
+            'lastLogin',
+            'locked',
+       );
+    }
+
+    /**
      * {@inheritdoc}
      */
     protected function configureRoutes(RouteCollection $collection)
