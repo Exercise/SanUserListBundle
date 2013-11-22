@@ -81,7 +81,7 @@ class UserAdmin extends Admin
 
         $datagridMapper
             ->add('lastLogin', $dateType)
-            ->add('registered', $dateType)
+            ->add('createdAt')
             ->add('username')
             ->add('enabled')
         ;
