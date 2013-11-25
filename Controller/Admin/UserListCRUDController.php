@@ -95,7 +95,7 @@ class UserListCRUDController extends CRUDController
     {
         $filters = array();
         foreach ($rawFilters as $key => $value) {
-            if (!is_array($value) || !$value['value']) {
+            if (!is_array($value) || !isset($value['value'])) {
                 continue;
             }
 
