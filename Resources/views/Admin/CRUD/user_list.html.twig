@@ -9,10 +9,6 @@
     </style>
 {% endblock %}
 
-{% block logo %}
-    <a href="{{ url('sonata_admin_dashboard') }}" class="brand">Dashboard</a>
-{% endblock %}
-
 {% block list_filters %}
     {% if admin.datagrid.filters %}
         <form class="sonata-filter-form {{ admin.isChild and 1 == admin.datagrid.filters|length ? 'hide' : '' }}" action="{{ admin.generateUrl('list') }}" method="GET">
