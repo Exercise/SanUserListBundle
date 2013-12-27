@@ -1,13 +1,4 @@
 {% extends 'SonataAdminBundle:CRUD:list.html.twig' %}
-{% block stylesheets %}
-    {{ parent() }}
-    <style>
-        .sonata-bc .filter_container input[type="submit"].btn {
-            width: 161px;
-            margin-bottom: 10px;
-        }
-    </style>
-{% endblock %}
 
 {% block list_filters %}
     {% if admin.datagrid.filters %}
