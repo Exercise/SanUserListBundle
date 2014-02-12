@@ -8,7 +8,6 @@
         <parameter key="san.admin.user.group_label">User Data</parameter>
         <parameter key="san.admin.user.label">Users</parameter>
         <parameter key="san.admin.user_list.label">Queries</parameter>
-        <parameter key="san.admin.user_controller.class"></parameter>
     </parameters>
 
     <services>
@@ -17,7 +16,7 @@
             <tag name="san.admin" />
             <argument />
             <argument>%san_user_list.user_class%</argument>
-            <argument>%san.admin.user_controller.class%</argument>
+            <argument />
             <call method="setTranslationDomain">
                 <argument>SanUserBundle</argument>
             </call>
