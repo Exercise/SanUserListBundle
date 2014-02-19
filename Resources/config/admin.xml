@@ -5,9 +5,9 @@
     <parameters>
         <parameter key="san.admin.user.class">San\UserListBundle\Admin\UserAdmin</parameter>
         <parameter key="san.admin.user_list.class">San\UserListBundle\Admin\UserListAdmin</parameter>
-        <parameter key="san.admin.user.group_label">User Data</parameter>
-        <parameter key="san.admin.user.label">Users</parameter>
-        <parameter key="san.admin.user_list.label">Queries</parameter>
+        <parameter key="san.admin.user.group_label">Users</parameter>
+        <parameter key="san.admin.user.label">Data</parameter>
+        <parameter key="san.admin.user_list.label">Lists</parameter>
     </parameters>
 
     <services>
