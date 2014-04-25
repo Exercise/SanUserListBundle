@@ -6,8 +6,9 @@ use San\UserListBundle\Admin\UserAdmin;
 use San\UserListBundle\Form\Type\UserEntityType;
 use San\UserListBundle\Model\UserList;
 use Sonata\AdminBundle\Admin\Admin;
-use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Datagrid\Datagrid;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
@@ -122,5 +123,30 @@ class UserListAdmin extends Admin
         }
 
         return $datagrid->getResults();
+    }
+
+    /**
+     * @param  Datagrid $datagrid
+     * @return array
+     */
+    public function getDefaultFilters(Datagrid $datagrid)
+    {
+        $form = $datagrid->getForm();
+        $filterParts = array();
+        if (!$datagrid->hasActiveFilters()) {
+            $filterParts = array('filter' => array());
+            foreach ($form as $field) {
+                $filterParts['filter'][$field->getName()]['type'] = '';
+                if (!in_array($field->getName(), array('_sort_by', '_sort_order', '_page', '_per_page')) && !is_array($field->getData()['value'])) {
+                    $filterParts['filter'][$field->getName()]['value'] = '';
+                }
+
+                if (in_array($field->getName(), array('_sort_by', '_sort_order', '_page', '_per_page'))) {
+                    $filterParts['filter'][$field->getName()] = $field->getData();
+                }
+            }
+        }
+
+        return $filterParts;
     }
 }
