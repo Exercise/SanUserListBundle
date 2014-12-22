@@ -4,10 +4,8 @@
 
     <parameters>
         <parameter key="san.admin.user.class">San\UserListBundle\Admin\UserAdmin</parameter>
-        <parameter key="san.admin.user_list.class">San\UserListBundle\Admin\UserListAdmin</parameter>
         <parameter key="san.admin.user.group_label">User Data</parameter>
         <parameter key="san.admin.user.label">Users</parameter>
-        <parameter key="san.admin.user_list.label">Queries</parameter>
     </parameters>
 
     <services>
@@ -19,20 +17,6 @@
             <argument />
             <call method="setTranslationDomain">
                 <argument>SanUserBundle</argument>
-            </call>
-        </service>
-
-        <service id="san.admin.user_list" class="%san.admin.user_list.class%">
-            <tag name="sonata.admin" manager_type="" group="%san.admin.user.group_label%" label="%san.admin.user_list.label%"/>
-            <tag name="san.admin" />
-            <argument />
-            <argument>San\UserListBundle\Entity\UserList</argument>
-            <argument>SanUserListBundle:Admin/UserListCRUD</argument>
-            <call method="setTranslationDomain">
-                <argument>SanUserBundle</argument>
-            </call>
-            <call method="setUserAdmin">
-                <argument type="service" id="san.admin.user" />
             </call>
         </service>
     </services>
